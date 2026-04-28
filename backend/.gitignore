@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Database (local only)
+*.db
+*.sqlite3
+
+# Cookies (sensitive)
+cookies.txt
+
+# Env
+.env
+
+# Logs
+*.log

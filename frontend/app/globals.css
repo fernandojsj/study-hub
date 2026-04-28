@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: #09090b;
+    color: #fafafa;
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background: rgba(139, 92, 246, 0.3);
+    color: #fafafa;
+  }
+
+  /* Thin scrollbar */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+}
+
+@layer components {
+  .kbd {
+    @apply inline-flex items-center justify-center min-w-[20px] h-5 px-1.5
+           rounded bg-zinc-800 border border-zinc-700
+           text-2xs font-mono text-zinc-400 select-none;
+  }
+
+  .stat-card {
+    @apply rounded-lg border border-border bg-bg-raised p-5
+           transition-colors hover:border-border-strong;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-2.5 rounded px-3 py-2 text-sm
+           text-zinc-400 transition-colors
+           hover:bg-zinc-800/60 hover:text-zinc-100;
+  }
+
+  .nav-item.active {
+    @apply bg-violet-muted text-violet border-r-0
+           font-medium;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded px-4 py-2 text-sm font-medium
+           bg-violet text-white transition-all
+           hover:bg-violet-dim active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded px-3 py-2 text-sm
+           text-zinc-400 transition-colors
+           hover:bg-zinc-800 hover:text-zinc-100;
+  }
+
+  .option-card {
+    @apply relative flex items-start gap-3 rounded-lg border border-border
+           bg-bg-raised p-4 cursor-pointer select-none
+           transition-all duration-150
+           hover:border-border-strong hover:bg-zinc-800/80;
+  }
+
+  .option-card.selected-correct {
+    @apply border-ok bg-ok-muted shadow-glow-ok;
+  }
+
+  .option-card.selected-wrong {
+    @apply border-fail bg-fail-muted shadow-glow-fail;
+  }
+
+  .option-card.reveal-correct {
+    @apply border-ok bg-ok-muted;
+  }
+
+  .option-card.disabled {
+    @apply cursor-default pointer-events-none;
+  }
+}
